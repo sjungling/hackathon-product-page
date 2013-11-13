@@ -5,6 +5,11 @@ define([
 
   var FinishModel = Backbone.Model.extend({
 
+    // helpers
+    isSelected: function() {
+      return this.isSelected;
+    },
+
     defaults: {
 
     }
