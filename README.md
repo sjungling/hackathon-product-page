@@ -1,7 +1,7 @@
 # Backbone-ize Build.com Product Page
 
 ## Set-up
-- [-] Create directory/file structure pattern
+- [x] Create directory/file structure pattern
 - [x] Be able to define product module that extends BB model and is loaded via RequireJS(?)
 
 ## Models
@@ -13,10 +13,9 @@
 #### Must Know if…
 - [ ] It has Availability by Location restrictions
 - [ ] Has Square Footage
-- [ ] Has MAP Restrictions
-- [ ] If it has Price Options
+- [x] If it has Price Options
 - [ ] If it has been configured
-- [ ] If it is a low-lead (AB1953) product
+- [x] If it is a low-lead (AB1953) product
 
 ### Finish
 - [ ] Finish Model
@@ -24,6 +23,7 @@
 #### Must know if…
 - [ ] It is active|selected
 - [ ] It is available (if there are location restrictions)
+- [ ] Has MAP Restrictions
 
 ## Views
 
