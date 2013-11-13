@@ -56,7 +56,7 @@ define([
       if (this.hasPricedOptions()) {
         // TODO: Add method to determine if we've selected one option from each option group
       }
-    },
+    }
 
   });
 

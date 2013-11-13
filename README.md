@@ -33,6 +33,9 @@
 
 ### Purchase Box
 - [ ] Purchase Box View
+  - [ ] Generic Product
+  - [ ] Product with Location Awareness (inc. zip code form)
+  - [ ] Product with Square Footage
 
 #### May have the following regions…
 - [ ] Product Image
