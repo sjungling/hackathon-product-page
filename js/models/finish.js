@@ -5,10 +5,6 @@ define([
 
   var FinishModel = Backbone.Model.extend({
 
-    // helpers
-    isSelected: function() {
-      return this.isSelected;
-    },
 
     defaults: {
       isSelected: false,
@@ -18,6 +14,11 @@ define([
 
     initialize: function(data) {
       // placeholder
+    },
+
+    // helpers
+    isSelected: function() {
+      return this.get('isSelected');
     }
 
   });

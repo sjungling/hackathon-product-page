@@ -25,9 +25,9 @@
 - [x] Finish Model
 
 #### Must know if…
-- [ ] It is active|selected
-- [ ] It is available (if there are location restrictions)
-- [ ] Has MAP Restrictions
+- [x] It is active|selected
+- [x] It is available (if there are location restrictions)
+- [x] Has MAP Restrictions
 
 ## Views
 
