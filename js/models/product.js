@@ -7,11 +7,12 @@ define([
   var Product = Backbone.Model.extend({
     initialize: function(data) {
       this.collection = new FinishesCollection(this.get('finishes'));
+      this.activeFinish = this.collection.getFinishByUniqueId(this.get('selectedFinishUniqueId'));
     },
 
     // Product Type Info
     hasSquareFootage: function() {
-      // TODO: Figure out how to calculate this
+      return this.get('hasSquareFootage');
     },
 
     isSingleFinish: function() {
@@ -34,7 +35,7 @@ define([
       return this.get('onSale');
     },
 
-    isLoadLead: function() {
+    isLowLead: function() {
       return this.get('AB1953');
     },
 
@@ -44,13 +45,6 @@ define([
         // TODO: Add method to determine if we've selected one option from each option group
       }
     },
-
-    // Helper Functions
-    getFinishByUniqueId: function(uniqueId) {
-      return _.findWhere(this.get('finishes'), {
-        uniqueId: uniqueId
-      });
-    }
 
   });
 

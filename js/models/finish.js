@@ -11,7 +11,13 @@ define([
     },
 
     defaults: {
+    	isSelected: false,
+    	isAvailable: true,
+    	hasMapRestrictions: false
+    },
 
+    initialize: function(data) {
+    	// console.log(data);
     }
 
   });

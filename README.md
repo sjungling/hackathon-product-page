@@ -12,13 +12,13 @@
 
 #### Must Know if…
 - [x] It has Availability by Location restrictions
-- [ ] Has Square Footage
+- [x] Has Square Footage
 - [x] If it has Price Options
 - [ ] If it has been configured
 - [x] If it is a low-lead (AB1953) product
 
 ### Finish
-- [ ] Finish Model
+- [x] Finish Model
 
 #### Must know if…
 - [ ] It is active|selected

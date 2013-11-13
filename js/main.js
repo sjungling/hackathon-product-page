@@ -31,5 +31,4 @@ require([
 
     var Product = new ProductModel(window.dataLayer.product);
     BUILD.Models['Product'] = Product;
-    console.log(Product);
 });
