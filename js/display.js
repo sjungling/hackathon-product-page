@@ -5,6 +5,7 @@ require([
   "models/product"
   ], function (require, util, ProductModel) {
     var Product = new ProductModel(window.dataLayer.product);
+    console.log(Product);
 });
 
 
