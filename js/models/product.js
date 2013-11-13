@@ -1,13 +1,12 @@
 define([
   'underscore',
-  'backbone'
-], function(_, Backbone) {
+  'backbone',
+  'models/finish',
+  'collections/finishes'
+], function(_, Backbone, FinishModel, FinishesCollection) {
   var Product = Backbone.Model.extend({
     initialize: function(data) {
-      // TODO: Add necessary
-      for (finish in this.get('finishes')) {
-        console.log(finish);
-      }
+      // TODO: Initialize Collection of Finish models
     },
 
 
@@ -28,6 +27,10 @@ define([
       return this.get('hasPricedOptions');
     },
 
+    hasAvailabilityByLocation: function() {
+      return (this.get('manufacturer') === "GE" || this.get('manufacturer') === "Hotpoint")
+    },
+
     isOnSale: function() {
       return this.get('onSale');
     },
@@ -40,7 +43,7 @@ define([
       // If we have priced options, have they been selected?
       if (this.hasPricedOptions()) {
         // TODO: Add method to determine if we've selected one option from each option group
-      };
+      }
     },
 
     // Helper Functions
