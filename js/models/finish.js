@@ -18,6 +18,8 @@ define([
 
     initialize: function(data) {
     	// console.log(data);
+    	// TODO:
+    	// 	- Find sane way to determine map restrictions where are a combination of Pro Status and pricebook
     }
 
   });

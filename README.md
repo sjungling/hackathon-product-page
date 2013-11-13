@@ -7,8 +7,8 @@
 ## Models
 
 ### Product
-- [ ] Has one or many Finish(es) models
-- [ ] One of these Finish(es) is always active|selected
+- [x] Has one or many Finish(es) models
+- [x] One of these Finish(es) is always active|selected
 
 #### Must Know if…
 - [x] It has Availability by Location restrictions
@@ -55,4 +55,15 @@
 
 #### Hover
 - [ ] Updates the following:
-- [ ] P
+- [ ] Price
+- [ ] Finish Name
+- [ ] Shipping
+- [ ] Lead Time Text
+- [ ] Inventory Levels
+- [ ] Product Image
+
+#### Click
+- [ ] Updates everything under Hover &
+- [ ] Page Heading
+- [ ] Document Title
+- [ ] BCI (Unique ID)
