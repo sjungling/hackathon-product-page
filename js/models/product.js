@@ -6,9 +6,8 @@ define([
 ], function(_, Backbone, FinishModel, FinishesCollection) {
   var Product = Backbone.Model.extend({
     initialize: function(data) {
-      // TODO: Initialize Collection of Finish models
+      this.collection = new FinishesCollection(this.get('finishes'));
     },
-
 
     // Product Type Info
     hasSquareFootage: function() {
@@ -28,7 +27,7 @@ define([
     },
 
     hasAvailabilityByLocation: function() {
-      return (this.get('manufacturer') === "GE" || this.get('manufacturer') === "Hotpoint")
+      return (this.get('manufacturer') === "GE" || this.get('manufacturer') === "Hotpoint");
     },
 
     isOnSale: function() {
