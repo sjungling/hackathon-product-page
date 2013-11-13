@@ -11,15 +11,13 @@ define([
     },
 
     defaults: {
-    	isSelected: false,
-    	isAvailable: true,
-    	hasMapRestrictions: false
+      isSelected: false,
+      isAvailable: true,
+      hasMapRestriction: false
     },
 
     initialize: function(data) {
-    	// console.log(data);
-    	// TODO:
-    	// 	- Find sane way to determine map restrictions where are a combination of Pro Status and pricebook
+      // placeholder
     }
 
   });
