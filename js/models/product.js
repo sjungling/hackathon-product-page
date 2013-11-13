@@ -6,8 +6,14 @@ define([
 ], function(_, Backbone, FinishModel, FinishesCollection) {
   var Product = Backbone.Model.extend({
     initialize: function(data) {
+      // Create the collection of finishes
       this.collection = new FinishesCollection(this.get('finishes'));
+
+      // Get the current active finish
       this.activeFinish = this.collection.getFinishByUniqueId(this.get('selectedFinishUniqueId'));
+
+      // Mark finish as active
+      this.activeFinish.set('isSelected', true);
     },
 
     // Product Type Info

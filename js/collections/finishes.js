@@ -13,8 +13,8 @@ define([
      * @return {Boolean} If the number of Finish models that are selected is > 0
      */
     hasSelectedFinish: function() {
-    	// Select the first model where isSelected is true
-    	// this.where()
+      // Select the first model where isSelected is true
+      // this.where()
     },
 
     /**
@@ -30,7 +30,7 @@ define([
      * @return {Object} Finish Model
      */
     getFinishByUniqueId: function(uniqueId){
-    	console.log(uniqueId);
+      return this.findWhere({uniqueId: uniqueId});
     }
 
 
