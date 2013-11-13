@@ -1,16 +1,16 @@
 define([
-	'underscore',
-	'backbone'
+  'underscore',
+  'backbone'
 ], function(_, Backbone) {
 
-	var FinishModel = Backbone.Model.extend({
+  var FinishModel = Backbone.Model.extend({
 
-		defaults: {
+    defaults: {
 
-		}
+    }
 
-	});
+  });
 
-	return FinishModel;
+  return FinishModel;
 
 });

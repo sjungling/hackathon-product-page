@@ -1,15 +1,15 @@
 define([
-	'underscore',
-	'backbone',
-	'models/finish'
+  'underscore',
+  'backbone',
+  'models/finish'
 ], function(_, Backbone, FinishModel) {
 
-	var FinishesCollection = Backbone.Collection.extend({
+  var FinishesCollection = Backbone.Collection.extend({
 
-		model: FinishModel
+    model: FinishModel
 
-	});
+  });
 
-	return FinishesCollection;
+  return FinishesCollection;
 
 });
