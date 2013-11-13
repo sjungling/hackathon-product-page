@@ -14,15 +14,19 @@ define([
      */
     hasSelectedFinish: function() {
       // Select the first model where isSelected is true
-      // this.where()
+      return this.findWhere({
+        isSelected: true
+      }) !== undefined;
     },
 
     /**
      * getSelectedFinish - get the currently selected finish
-     * @return {Object} Finish Model
+     * @return {Object|Boolean} Finish Model or false if none was found
      */
     getSelectedFinish: function() {
-
+      return this.findWhere({
+        isSelected: true
+      }) || false;
     },
 
     /**
