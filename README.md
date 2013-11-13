@@ -17,6 +17,10 @@
 - [ ] If it has been configured
 - [x] If it is a low-lead (AB1953) product
 
+##### Nice to haves
+- [ ] Bundle
+- [ ] Accessories
+
 ### Finish
 - [x] Finish Model
 

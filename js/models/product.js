@@ -29,12 +29,18 @@ define([
       return this.get('finishes').length > 0;
     },
 
+    /**
+     * TODO: Deprecate?
+     */
     hasPricedOptions: function() {
       return this.get('hasPricedOptions');
     },
 
+    /**
+     * TODO: Deprecate?
+     */
     hasAvailabilityByLocation: function() {
-      return (this.get('manufacturer') === "GE" || this.get('manufacturer') === "Hotpoint");
+      return this.get('isAvailableByLocation');
     },
 
     isOnSale: function() {
