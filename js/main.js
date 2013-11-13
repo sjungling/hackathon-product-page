@@ -11,22 +11,24 @@ require([
   'models/product'
   ], function (Marionette, require, util, ProductModel) {
 
-    var app = new Backbone.Marionette.Application();
+    var productLayout = new Backbone.Marionette.Layout.extend({
 
-    app.addRegions({
-      image: '#productImage',
-      heading: '#titleName',
-      finishName: '#finishName',
-      leadTime: '#prdStockMessage',
-      inventory: '.stock-messages',
-      // shipping: '',
-      addToCart: '#addToCartWrap',
-      // configuration: '',
-      finishes: '.finishes.hnav',
-      ratingsReviews: '#avgRatingAndReviewsDiv',
-      quantity: '#qtyselected',
-      price: '#productPrice',
-      savings: '#productSavings'
+      regions: {
+        image: '#productImage',
+        heading: '#titleName',
+        finishName: '#finishName',
+        leadTime: '#prdStockMessage',
+        inventory: '.stock-messages',
+        // shipping: '',
+        addToCart: '#addToCartWrap',
+        // configuration: '',
+        finishes: '.finishes.hnav',
+        ratingsReviews: '#avgRatingAndReviewsDiv',
+        quantity: '#qtyselected',
+        price: '#productPrice',
+        savings: '#productSavings'
+      }
+
     });
 
     var Product = new ProductModel(window.dataLayer.product);
