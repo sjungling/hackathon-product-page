@@ -17,7 +17,10 @@ define([
 		},
 
 		updateTitle: function(e) {
-			// debugger;
+			e.preventDefault();
+			this.pubSub.trigger('finishClicked', {
+				title: this.model.get('title')
+			});
 		}
 
 	});
