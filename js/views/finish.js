@@ -6,7 +6,9 @@ define([
 	var FinishView = Backbone.Marionette.View.extend({
 
 		initialize: function() {
-			this.listenTo(this.pubSub, 'finishClicked', this.render)
+			// this may seem odd given we emit this event from updatePage, but we
+			// listen for it on every finish view... so it actually makes sense
+			this.listenTo(this.pubSub, 'finishClicked', this.render);
 		},
 
 		model: FinishModel,
@@ -43,7 +45,7 @@ define([
 		},
 
 		render: function() {
-			this.$el.find('label').toggleClass('active', this.model.get('isSelected'))
+			this.$el.find('label').toggleClass('active', this.model.get('isSelected'));
 		}
 
 
