@@ -13,8 +13,30 @@ define([
       for (var i = 0; i < this.model.options.models.length; i++) {
         this.optionViews.push(new PricedOptionView({model: this.model.options.models[i]}));
       }
-      console.log(this.optionViews);
+
+      for (var i = 0; i < this.optionViews.length; i++) {
+        this.optionViews[i].on('pricedOption:changed', this.optionChanged, this);
+      };
     },
+
+    optionChanged: function() {
+      if (this.isConfigured()) {
+        this.model.set('isConfigured', true);
+      } else {
+        this.model.set('isConfigured', false);
+      }
+    },
+    isConfigured: function() {
+      if (this.model.get('isRequired')) {
+        if (this.model.options.where({isSelected:true}).length === 1) {
+          return true
+        } else {
+          return false;
+        }
+      } else {
+        return true;
+      }
+    }
 
   });
 
