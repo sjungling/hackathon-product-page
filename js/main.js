@@ -70,7 +70,7 @@ require([
       for (var i = Product.optionGroups.models.length - 1; i >= 0; i--) {
         new OptionGroupsView({
           model: Product.optionGroups.models[i]
-        })
+        });
       }
     }
 
