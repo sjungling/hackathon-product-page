@@ -33,6 +33,8 @@ require([
     FinishesView,
     OptionGroupsView) {
 
+    BUILD.Utilities = util;
+
     Backbone.Marionette.View.prototype.pubSub =
       Backbone.View.prototype.pubSub =
       Backbone.Collection.prototype.pubSub = _.extend({},Backbone.Events);
@@ -75,7 +77,7 @@ require([
     }
 
     layout.image.show(new ImageView());
-    layout.price.show(new PriceView());
+    var price  = new PriceView({model: Product.finishes.getSelectedFinish()});
     var savingsView = new SavingsView();
     layout.heading.show(new HeadingView());
     layout.leadTime.show(new LeadTimeView());
@@ -87,7 +89,6 @@ require([
     //
     // Export objects to global object
     BUILD.Models['Product'] = Product;
-    BUILD.Utilities = util;
     BUILD.Collections['Finishes'] = Product.finishes;
     if (Product.hasPricedOptions()) {
       BUILD.Collections['PricedOptionGroups'] = Product.optionGroups;
