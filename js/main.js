@@ -77,7 +77,9 @@ require([
     }
 
     layout.image.show(new ImageView());
-    var price  = new PriceView({model: Product.finishes.getSelectedFinish()});
+    var price  = new PriceView({
+      model: new Backbone.Model(Product.finishes.getSelectedFinish().toJSON())
+    });
     var savingsView = new SavingsView();
     layout.heading.show(new HeadingView());
     layout.leadTime.show(new LeadTimeView());
