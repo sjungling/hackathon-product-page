@@ -9,6 +9,7 @@ define([
 
 		events: {
 			'mouseenter': 'showFinish',
+			'mouseleave': 'showDefaultFinish',
 			'click': 'updatePage'
 		},
 
@@ -25,6 +26,11 @@ define([
 		 */
 		showFinish: function(e) {
 			this.pubSub.trigger('finishHovered', this.model.toJSON());
+		},
+
+		showDefaultFinish: function(e) {
+			var finish = window.BUILD.Collections.Finishes.getSelectedFinish();
+			this.pubSub.trigger('finishHovered', finish.toJSON());
 		},
 
 		updatePage: function(e) {
