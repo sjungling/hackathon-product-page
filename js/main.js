@@ -8,10 +8,11 @@ require([
   'marionette',
   'require',
   'helpers/utils',
-  'models/product'
-  ], function (Marionette, require, util, ProductModel) {
+  'models/product',
+  'views/finishes'
+  ], function (Marionette, require, util, ProductModel, FinishesView) {
 
-    var productLayout = new Backbone.Marionette.Layout.extend({
+    var Layout = Backbone.Marionette.Layout.extend({
 
       regions: {
         image: '#productImage',
@@ -30,6 +31,11 @@ require([
       }
 
     });
+
+    var layout = new Layout();
+
+    layout.finishes.show(new FinishesView());
+
 
     var Product = new ProductModel(window.dataLayer.product);
     BUILD.Models['Product'] = Product;

@@ -4,7 +4,22 @@ define([
 ], function(m, FinishItemView) {
 
 	var FinishesCollectionView = Backbone.Marionette.CollectionView.extend({
-		itemView: FinishItemView
+
+		initialize: function() {
+			console.log('initializing finishes collection view');
+		},
+
+		itemView: FinishItemView,
+
+		events: {
+			'click': 'showFinish'
+		},
+
+		showFinish: function(e) {
+			console.log('hovered!');
+		}
+
+
 	});
 
 	return FinishesCollectionView;
