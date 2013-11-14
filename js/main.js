@@ -11,8 +11,9 @@ require([
   'models/product',
   'views/heading',
   'views/price',
-  'views/finishes'
-  ], function (Marionette, require, util, ProductModel, HeadingView, PriceView, FinishesView) {
+  'views/finishes',
+  'views/option_groups'
+  ], function (Marionette, require, util, ProductModel, HeadingView, PriceView, FinishesView, OptionGroupsView) {
 
     Backbone.Marionette.View.prototype.pubSub =
       Backbone.Model.prototype.pubSub = _.extend({},Backbone.Events);
@@ -32,7 +33,8 @@ require([
         ratingsReviews: '#avgRatingAndReviewsDiv',
         quantity: '#qtyselected',
         price: '#productPrice',
-        savings: '#productSavings'
+        savings: '#productSavings',
+        optionGroups: '.poGroup'
       }
 
     });
@@ -46,7 +48,12 @@ require([
       collection: Product.finishes
     }));
 
-    layout.price.show(new PriceView());
+    for (var i = Product.optionGroups.models.length - 1; i >= 0; i--) {
+      layout.optionGroups.show(new OptionGroupsView({
+        model: Product.optionGroups.models[i]
+      }));
+    };
 
+    layout.price.show(new PriceView());
     layout.heading.show(new HeadingView());
 });
