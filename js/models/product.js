@@ -2,10 +2,14 @@ define([
   'underscore',
   'backbone',
   'models/finish',
-  'collections/finishes'
-], function(_, Backbone, FinishModel, FinishesCollection) {
+  'collections/finishes',
+  'collections/option_groups'
+], function(_, Backbone, FinishModel, FinishesCollection, OptionGroupsCollection) {
   var Product = Backbone.Model.extend({
     initialize: function(data) {
+
+      this.optionGroups = new OptionGroupsCollection(this.get('pricedOptions'));
+
       // Create the collection of finishes
       this.finishes = new FinishesCollection(this.get('finishes'));
 
