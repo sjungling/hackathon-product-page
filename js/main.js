@@ -10,13 +10,14 @@ require([
   'helpers/utils',
   'models/product',
   'views/heading',
+  'views/image',
   'views/inventory',
   'views/price',
   'views/leadTime',
   'views/savings',
   'views/finishes',
   'views/option_groups'
-  ], function (Marionette, require, util, ProductModel, HeadingView, InventoryView, PriceView, LeadTimeView, SavingsView, FinishesView, OptionGroupsView) {
+  ], function (Marionette, require, util, ProductModel, HeadingView, ImageView, InventoryView, PriceView, LeadTimeView, SavingsView, FinishesView, OptionGroupsView) {
 
     Backbone.Marionette.View.prototype.pubSub = _.extend({},Backbone.Events);
 
@@ -57,6 +58,7 @@ require([
       }
     }
 
+    layout.image.show(new ImageView());
     layout.price.show(new PriceView());
     layout.savings.show(new SavingsView());
     layout.heading.show(new HeadingView());
