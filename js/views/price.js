@@ -26,8 +26,6 @@ define([
 			});
 		},
 
-		el: '.js-price',
-
 		render: function() {
 			var modelPrice = this.model.get('price');
 			var configurationsPrice = _.reduce(this.configurations, function(memo, num){ return memo + num; }, 0);

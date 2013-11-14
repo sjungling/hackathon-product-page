@@ -77,9 +77,14 @@ require([
     }
 
     layout.image.show(new ImageView());
-    var price  = new PriceView({
-      model: new Backbone.Model(Product.finishes.getSelectedFinish().toJSON())
-    });
+    var $priceViews = $('.js-price');
+
+    for (var i = 0; i < $priceViews.length; i++) {
+      new PriceView({
+        model: new Backbone.Model(Product.finishes.getSelectedFinish().toJSON()),
+        el: $priceViews[i]
+      });
+    }
     var savingsView = new SavingsView();
     layout.heading.show(new HeadingView());
     layout.leadTime.show(new LeadTimeView());
