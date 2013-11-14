@@ -29,7 +29,7 @@ define([
     isConfigured: function() {
       if (this.model.get('isRequired')) {
         if (this.model.options.where({isSelected:true}).length === 1) {
-          return true
+          return true;
         } else {
           return false;
         }

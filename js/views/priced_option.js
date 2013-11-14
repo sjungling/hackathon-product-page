@@ -20,7 +20,7 @@ define([
       } else {
         this.model.set('isSelected', (this.$el.val().length > 0 ));
       }
-      this.trigger('pricedOption:changed');
+      this.pubSub.trigger('pricedOption:changed', this.model);
     }
 
   });

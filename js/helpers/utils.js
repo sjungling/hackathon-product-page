@@ -4,7 +4,7 @@ define([
   var util = window.util || {};
 
   util.formatCurrency = function (price) {
-    return "$" + price;
+    return "$" + price.toFixed(2);
   };
 
   util.isZip = function (str) {
