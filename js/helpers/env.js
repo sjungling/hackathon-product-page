@@ -2,7 +2,6 @@ define(function () {
   var Environment = function Environment() {}
 
   Environment.prototype.hasTouch = function () {
-    var foo = 'bar';
     return Modernizr.touch;
   };
 
