@@ -8,11 +8,16 @@ define([
 		model: FinishModel,
 
 		events: {
-			'mouseenter': 'showFinish'
+			'mouseenter': 'showFinish',
+			'click': 'updateTitle'
 		},
 
 		showFinish: function(e) {
 			console.log(this.model.attributes);
+		},
+
+		updateTitle: function(e) {
+			// debugger;
 		}
 
 	});

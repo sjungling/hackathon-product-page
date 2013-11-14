@@ -38,6 +38,6 @@ require([
     BUILD.Models['Product'] = Product;
 
     layout.finishes.show(new FinishesView({
-      collection: Product.collection
+      collection: Product.finishes
     }));
 });
