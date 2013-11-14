@@ -6,6 +6,10 @@ define([
 
   var FinishesCollection = Backbone.Collection.extend({
 
+    initialize: function() {
+      this.listenTo(this.pubSub, 'finishClicked', this.setSelectedFinish);
+    },
+
     model: FinishModel,
 
     /**
@@ -27,6 +31,22 @@ define([
       return this.findWhere({
         isSelected: true
       }) || false;
+    },
+
+    /**
+     * setSelectedFinish - set the currently selected finish
+     * @param  {Number} data     The new selected finish model
+     * @return {Object|Boolean}  Finish Model or false if none was found
+     */
+    setSelectedFinish: function(data) {
+      this.each(function(model) {
+        model.set({
+          isSelected: false
+        });
+      });
+      this.getFinishByUniqueId(data.uniqueId).set({
+        isSelected: true
+      });
     },
 
     /**

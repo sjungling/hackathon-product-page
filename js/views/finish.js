@@ -3,7 +3,7 @@ define([
 	'models/finish'
 ], function(Marionette, FinishModel) {
 
-	var FinishItemView = Backbone.Marionette.View.extend({
+	var FinishView = Backbone.Marionette.View.extend({
 
 		model: FinishModel,
 
@@ -38,9 +38,8 @@ define([
 			this.pubSub.trigger('finishClicked', this.model.toJSON());
 		}
 
-
 	});
 
-	return FinishItemView;
+	return FinishView;
 
 });

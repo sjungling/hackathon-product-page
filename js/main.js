@@ -34,7 +34,8 @@ require([
     OptionGroupsView) {
 
     Backbone.Marionette.View.prototype.pubSub =
-      Backbone.View.prototype.pubSub = _.extend({},Backbone.Events);
+      Backbone.View.prototype.pubSub =
+      Backbone.Collection.prototype.pubSub = _.extend({},Backbone.Events);
 
     var Layout = Backbone.Marionette.Layout.extend({
 
@@ -75,7 +76,7 @@ require([
 
     layout.image.show(new ImageView());
     layout.price.show(new PriceView());
-    layout.savings.show(new SavingsView());
+    var savingsView = new SavingsView();
     layout.heading.show(new HeadingView());
     layout.leadTime.show(new LeadTimeView());
     layout.inventory.show(new InventoryView());
