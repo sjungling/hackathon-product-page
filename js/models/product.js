@@ -6,11 +6,15 @@ define([
   'collections/option_groups'
 ], function(_, Backbone, FinishModel, FinishesCollection, OptionGroupsCollection) {
   var Product = Backbone.Model.extend({
+
     initialize: function(data) {
 
       // Conditionally Create Priced Options collection
       if (this.hasPricedOptions()) {
         this.optionGroups = new OptionGroupsCollection(this.get('pricedOptions'));
+        if (this.hasRequiredOptions()) {
+          this.set('isConfigured', false);
+        }
       }
 
       // Create the collection of finishes
@@ -58,11 +62,24 @@ define([
       return this.get('AB1953') || false;
     },
 
+    hasRequiredOptions: function() {
+      return this.optionGroups.getRequiredGroups().length > 0;
+    },
+
     isConfigured: function() {
-      // If we have priced options, have they been selected?
-      if (this.hasPricedOptions()) {
-        // TODO: Add method to determine if we've selected one option from each option group
+      if (this.hasPricedOptions() && this.hasRequiredOptions()) {
+        for (var i = this.optionGroups.getRequiredGroups().length - 1; i >= 0; i--) {
+          var optionGroup = this.optionGroups.getRequiredGroups()[i];
+          if (optionGroup.get('isConfigured')) {
+            this.set('isConfigured', true);
+          } else {
+            // As long as there's one false group, the whole status is false
+            this.set('isConfigured', false);
+            break;
+          }
+        }
       }
+      return this.get('isConfigured');
     },
 
     /**

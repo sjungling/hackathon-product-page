@@ -14,7 +14,7 @@
 - [x] It has Availability by Location restrictions
 - [x] Has Square Footage
 - [x] If it has Price Options
-- [ ] If it has been configured
+- [-] If it has been configured
 - [x] If it is a low-lead (AB1953) product
 
 ##### Nice to haves
