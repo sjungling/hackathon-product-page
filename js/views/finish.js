@@ -24,14 +24,12 @@ define([
 		 * @return {[type]}   [description]
 		 */
 		showFinish: function(e) {
-			console.log(this.model.attributes);
+			this.pubSub.trigger('finishHovered', this.model.toJSON());
 		},
 
 		updatePage: function(e) {
 			e.preventDefault();
-			this.pubSub.trigger('finishClicked', {
-				title: this.model.get('title')
-			});
+			this.pubSub.trigger('finishClicked', this.model.toJSON());
 		}
 
 

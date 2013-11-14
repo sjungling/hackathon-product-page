@@ -14,7 +14,10 @@ define([
 		el: '#titleName',
 
 		updateTitle: function(data) {
-			this.model.set(data);
+			var data = data || {};
+			this.model.set({
+				title: data.title
+			});
 			this.render();
 		},
 
