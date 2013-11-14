@@ -26,7 +26,7 @@ define([
 			});
 		},
 
-		el: '#productPrice',
+		el: '.js-price',
 
 		render: function() {
 			var modelPrice = this.model.get('price');
