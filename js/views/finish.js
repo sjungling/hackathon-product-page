@@ -9,19 +9,31 @@ define([
 
 		events: {
 			'mouseenter': 'showFinish',
-			'click': 'updateTitle'
+			'click': 'updatePage'
 		},
 
+		/**
+		 * showFinish - Swap out relevant product info
+		 * 	- Price
+		 * 	- Finish Name
+		 * 	- Shipping
+		 * 	- Lead Time Text
+		 * 	- Inventory Level
+		 * 	- Product Image
+		 * @param  {Event} e mousenterEvent
+		 * @return {[type]}   [description]
+		 */
 		showFinish: function(e) {
 			console.log(this.model.attributes);
 		},
 
-		updateTitle: function(e) {
+		updatePage: function(e) {
 			e.preventDefault();
 			this.pubSub.trigger('finishClicked', {
 				title: this.model.get('title')
 			});
 		}
+
 
 	});
 

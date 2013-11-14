@@ -2,10 +2,17 @@ define([
   'underscore',
   'backbone',
   'models/finish',
-  'collections/finishes'
-], function(_, Backbone, FinishModel, FinishesCollection) {
+  'collections/finishes',
+  'collections/option_groups'
+], function(_, Backbone, FinishModel, FinishesCollection, OptionGroupsCollection) {
   var Product = Backbone.Model.extend({
     initialize: function(data) {
+
+      // Conditionally Create Priced Options collection
+      if (this.hasPricedOptions()) {
+        this.optionGroups = new OptionGroupsCollection(this.get('pricedOptions'));
+      }
+
       // Create the collection of finishes
       this.finishes = new FinishesCollection(this.get('finishes'));
 
@@ -18,7 +25,7 @@ define([
 
     // Product Type Info
     hasSquareFootage: function() {
-      return this.get('hasSquareFootage');
+      return this.get('hasSquareFootage') || false;
     },
 
     isSingleFinish: function() {
@@ -33,22 +40,22 @@ define([
      * TODO: Deprecate?
      */
     hasPricedOptions: function() {
-      return this.get('hasPricedOptions');
+      return this.get('hasPricedOptions') || false;
     },
 
     /**
      * TODO: Deprecate?
      */
     hasAvailabilityByLocation: function() {
-      return this.get('isAvailableByLocation');
+      return this.get('isAvailableByLocation') || false;
     },
 
     isOnSale: function() {
-      return this.get('onSale');
+      return this.get('onSale') || false;
     },
 
     isLowLead: function() {
-      return this.get('AB1953');
+      return this.get('AB1953') || false;
     },
 
     isConfigured: function() {
@@ -58,6 +65,9 @@ define([
       }
     },
 
+    /**
+     * FIXME: Move to a view file when available.
+     */
     fetchStock: function() {
       var _this = this;
       if (this.hasAvailabilityByLocation() !== false) {
