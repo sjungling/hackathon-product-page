@@ -12,7 +12,7 @@ define([
 
 		updateImage: function(data) {
 			this.model = new Backbone.Model({
-				image: data.image
+				image330x320: data.image330x320
 			});
 			this.render();
 		},
@@ -20,7 +20,7 @@ define([
 		render: function() {
 			// don't render on initial view binding
 			if (this.model) {
-				this.$el.attr('src', this.model.get('image'));
+				this.$el.attr('src', this.model.get('image330x320'));
 			}
 		}
 
