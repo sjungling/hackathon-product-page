@@ -9,9 +9,9 @@ define([
     model: OptionGroupModel,
     el: '.poGroup',
     initialize: function() {
-      for (var i = this.model.options.models.length - 1; i >= 0; i--) {
+      for (var i = 0; i < this.model.options.models.length; i++) {
         new PricedOptionView({model: this.model.options.models[i]});
-      };
+      }
     },
 
     selectionChange: function(e) {

@@ -11,6 +11,10 @@ define([
       'click': 'selectionChange'
     },
 
+    initialize: function(){
+      console.log('creating view for this: ' + this.model.attributes.id);
+    },
+
     selectionChange: function(e) {
       console.log(e.currentTarget);
       if (this.$el.prop('type') === "checkbox" || this.$el.prop('type') === "radio"){

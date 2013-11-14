@@ -67,9 +67,9 @@ require([
 
     if (Product.hasPricedOptions()) {
       for (var i = Product.optionGroups.models.length - 1; i >= 0; i--) {
-        layout.optionGroups.show(new OptionGroupsView({
+        new OptionGroupsView({
           model: Product.optionGroups.models[i]
-        }));
+        })
       }
     }
 
