@@ -9,14 +9,12 @@ define([
     model: OptionGroupModel,
     el: '.poGroup',
     initialize: function() {
+      this.optionViews = [];
       for (var i = 0; i < this.model.options.models.length; i++) {
-        new PricedOptionView({model: this.model.options.models[i]});
+        this.optionViews.push(new PricedOptionView({model: this.model.options.models[i]}));
       }
+      console.log(this.optionViews);
     },
-
-    selectionChange: function(e) {
-      console.log(e.currentTarget);
-    }
 
   });
 
