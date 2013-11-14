@@ -12,10 +12,11 @@ require([
   'views/heading',
   'views/inventory',
   'views/price',
+  'views/leadTime',
   'views/savings',
   'views/finishes',
   'views/option_groups'
-  ], function (Marionette, require, util, ProductModel, HeadingView, InventoryView, PriceView, SavingsView, FinishesView, OptionGroupsView) {
+  ], function (Marionette, require, util, ProductModel, HeadingView, InventoryView, PriceView, LeadTimeView, SavingsView, FinishesView, OptionGroupsView) {
 
     Backbone.Marionette.View.prototype.pubSub = _.extend({},Backbone.Events);
 
@@ -53,12 +54,13 @@ require([
         layout.optionGroups.show(new OptionGroupsView({
           model: Product.optionGroups.models[i]
         }));
-      };
+      }
     }
 
     layout.price.show(new PriceView());
     layout.savings.show(new SavingsView());
     layout.heading.show(new HeadingView());
+    layout.leadTime.show(new LeadTimeView());
     layout.inventory.show(new InventoryView());
 
 

@@ -8,18 +8,21 @@ define([
 			this.listenTo(this.pubSub, 'finishHovered', this.updateStock);
 		},
 
-		el: '#prdStockMessage',
+		el: '#stockCount',
 
 		updateStock: function(data) {
 			this.model = new Backbone.Model({
-				leadTimeMessage: data.leadTimeMessage
+				stock: data.stock
 			});
 			this.render();
 		},
 
 		render: function() {
 			if (this.model) {
-				this.$el.html('Ships in: ' + this.model.get('leadTimeMessage'));
+				var text = this.model.get('stock') > 0 ?
+					this.model.get('stock') + ' In Stock' :
+					'Out Of Stock';
+				this.$el.html(text);
 			}
 		}
 
