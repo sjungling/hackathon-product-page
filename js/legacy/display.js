@@ -336,6 +336,11 @@ jQuery(function($) {
       /* mark the active swatch*/
       $("#finish" + $activeSwatch.data("uniqueid")).attr("checked", true);
     }
+
+
+    /**
+     * TODO: Replace this will better view management
+     */
     setSwatchDetails = function($sw, clicked) {
       var stockMessagePreamble = "", selectedFinish;
 
@@ -418,10 +423,18 @@ jQuery(function($) {
       return updateTotal(true, $sw.closest("li").find("input").get(0));
     };
 
+
+    /**
+     * TODO: Helper method… add to a view file
+     */
     resetActiveSwatch = function() {
       return setSwatchDetails($activeSwatch);
     };
 
+
+    /**
+     * Start of EVENTS!!!
+     */
     $('.finishes').on('mouseleave', function() {
       resetActiveSwatch();
     });
@@ -432,6 +445,9 @@ jQuery(function($) {
       });
     }
 
+    /**
+     * TODO: Integrate into BB views
+     */
     $swatchLinks.on("click", function(e) {
       if ($activeSwatch) {
         $activeSwatch.closest("label").removeClass("active");
@@ -446,12 +462,19 @@ jQuery(function($) {
       return false;
     });
 
+
+
+    // Preloads some images
     $swatches.each(function() {
       var img = new Image();
       img.src = $(this).data("image");
       return img;
     });
   } else {
+
+    /**
+     * TODO: Method for delegate of the product image region
+     */
     resetDefaultImage = function() {
       $productImage.attr("src", $productImage.data("defaultImage"));
       return $productImageLink.attr("href", $productImage.data("defaultImage"));
@@ -474,6 +497,10 @@ jQuery(function($) {
     $('#vert_slide').slideDown();
   });
 
+
+  /** TODO:
+  * Deprecate?
+  */
   $('a.vote').on('click', function(e) {
     var count = $(this.hash);
     e.preventDefault();
@@ -500,6 +527,10 @@ jQuery(function($) {
     // Initially hide messaging
     $("#stockCount, #out-of-stock, #stockDefault, #freeShippingQualifier, #lead-time").hide();
 
+
+    /**
+     * TODO: Look into adding another collection of priced options to Product model
+     */
     getByAvailability = function($objects, available) {
       if (available === null || available === undefined) {
         available = true;
@@ -513,6 +544,12 @@ jQuery(function($) {
         }
       });
     };
+
+
+    /**
+     * TODO: This should be moved to a product level view handler
+     * @return {[type]} [description]
+     */
     fetchStock = function() {
       var $availabilityDone, $availabilityLoading, passZip, userZip;
       userZip = $location_text.attr("value");
@@ -613,6 +650,13 @@ jQuery(function($) {
         }
       });
     };
+
+    /**
+     * TODO: Should be called by fetchStock with return object
+     * @param  {[type]} $el       [description]
+     * @param  {[type]} stockData [description]
+     * @return {[type]}           [description]
+     */
     updateFinish = function($el, stockData) {
       var $dataContainer, finishData;
       if ($el.attr("value") !== "0" && stockData && stockData.length) {
@@ -644,6 +688,10 @@ jQuery(function($) {
         }
       }
     };
+
+    /**
+     * FIXED: Replaced with method in Finish Collection
+     */
     getFinishData = function(uid, finishes) {
       var i, len;
       i = 0;
@@ -655,6 +703,10 @@ jQuery(function($) {
         i++;
       }
     };
+
+    /**
+     * TODO: This shoudl be integrated into the method that replaces updateFinish
+     */
     updateStock = function(stockData) {
       if (!$selFinish.length) {
         return;
@@ -663,6 +715,12 @@ jQuery(function($) {
         return updateFinish($(this), stockData);
       }).trigger("change");
     };
+
+    /**
+     * TODO: Purchase Box level method to toggle add to cart button
+     * @param  {[type]} on_ [description]
+     * @return {[type]}     [description]
+     */
     toggleAddToCart = function(on_) {
       $addToCartBtn.toggleClass("disabled", !on_);
       return $configureButton.toggleClass("disabled", !on_);
@@ -765,7 +823,6 @@ jQuery(function($) {
 
       initialLoad = false;
     });
-
   }
 
 
