@@ -48,11 +48,13 @@ require([
       collection: Product.finishes
     }));
 
-    for (var i = Product.optionGroups.models.length - 1; i >= 0; i--) {
-      layout.optionGroups.show(new OptionGroupsView({
-        model: Product.optionGroups.models[i]
-      }));
-    };
+    if (Product.hasPricedOptions()) {
+      for (var i = Product.optionGroups.models.length - 1; i >= 0; i--) {
+        layout.optionGroups.show(new OptionGroupsView({
+          model: Product.optionGroups.models[i]
+        }));
+      };
+    }
 
     layout.price.show(new PriceView());
     layout.heading.show(new HeadingView());
