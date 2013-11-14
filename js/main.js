@@ -42,7 +42,6 @@ require([
     var layout = new Layout();
 
     var Product = new ProductModel(window.dataLayer.product);
-    BUILD.Models['Product'] = Product;
 
     layout.finishes.show(new FinishesView({
       collection: Product.finishes
@@ -58,4 +57,16 @@ require([
 
     layout.price.show(new PriceView());
     layout.heading.show(new HeadingView());
+
+
+    // Keep at EOF
+    //
+    // Export objects to global object
+    BUILD.Models['Product'] = Product;
+    BUILD.Utilities = util;
+    BUILD.Collections['Finishes'] = Product.finishes;
+    if (Product.hasPricedOptions()) {
+      BUILD.Collections['PricedOptionGroups'] = Product.optionGroups;
+    }
+
 });
