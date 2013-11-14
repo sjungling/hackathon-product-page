@@ -8,7 +8,10 @@ define([
   var Product = Backbone.Model.extend({
     initialize: function(data) {
 
-      this.optionGroups = new OptionGroupsCollection(this.get('pricedOptions'));
+      // Conditionally Create Priced Options collection
+      if (this.hasPricedOptions()) {
+        this.optionGroups = new OptionGroupsCollection(this.get('pricedOptions'));
+      }
 
       // Create the collection of finishes
       this.finishes = new FinishesCollection(this.get('finishes'));
@@ -62,6 +65,9 @@ define([
       }
     },
 
+    /**
+     * FIXME: Move to a view file when available.
+     */
     fetchStock: function() {
       var _this = this;
       if (this.hasAvailabilityByLocation() !== false) {

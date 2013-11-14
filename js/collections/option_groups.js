@@ -6,7 +6,19 @@ define([
 
   var OptionGroupsCollection = Backbone.Collection.extend({
 
-    model: OptionGroupModel
+    model: OptionGroupModel,
+
+    getRequiredGroups: function(){
+      return this.where({
+        isRequired: true
+      }) || false;
+    },
+
+    getConfiguredOptions: function() {
+      return this.where({
+        isConfigured: true
+      }) || false;
+    }
   });
 
   return OptionGroupsCollection;

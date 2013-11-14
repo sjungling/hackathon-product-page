@@ -6,7 +6,13 @@ define([
 
   var PricedOptionsCollection = Backbone.Collection.extend({
 
-    model: PricedOptionModel
+    model: PricedOptionModel,
+
+    getSelection: function(){
+      return this.where({
+        isSelected: true
+      }) || false;
+    }
   });
 
   return PricedOptionsCollection;

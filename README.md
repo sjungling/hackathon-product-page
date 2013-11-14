@@ -29,6 +29,12 @@
 - [x] It is available (if there are location restrictions)
 - [x] Has MAP Restrictions
 
+### Option Groups
+- [x] Collection of Priced Option Group models
+
+### Priced Option
+- [x] Individual option of a group
+
 ## Views
 
 ### Purchase Box
