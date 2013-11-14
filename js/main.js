@@ -9,6 +9,7 @@ require([
   'require',
   'helpers/utils',
   'models/product',
+  'views/finishName',
   'views/heading',
   'views/image',
   'views/inventory',
@@ -17,9 +18,10 @@ require([
   'views/savings',
   'views/finishes',
   'views/option_groups'
-  ], function (Marionette, require, util, ProductModel, HeadingView, ImageView, InventoryView, PriceView, LeadTimeView, SavingsView, FinishesView, OptionGroupsView) {
+  ], function (Marionette, require, util, ProductModel, FinishNameView, HeadingView, ImageView, InventoryView, PriceView, LeadTimeView, SavingsView, FinishesView, OptionGroupsView) {
 
-    Backbone.Marionette.View.prototype.pubSub = _.extend({},Backbone.Events);
+    Backbone.Marionette.View.prototype.pubSub =
+      Backbone.View.prototype.pubSub = _.extend({},Backbone.Events);
 
     var Layout = Backbone.Marionette.Layout.extend({
 
@@ -64,6 +66,7 @@ require([
     layout.heading.show(new HeadingView());
     layout.leadTime.show(new LeadTimeView());
     layout.inventory.show(new InventoryView());
+    layout.finishName.show(new FinishNameView());
 
 
     // Keep at EOF
