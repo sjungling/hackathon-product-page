@@ -5,6 +5,10 @@ define([
 
 	var FinishView = Backbone.Marionette.View.extend({
 
+		initialize: function() {
+			this.listenTo(this.pubSub, 'finishClicked', this.render)
+		},
+
 		model: FinishModel,
 
 		events: {
@@ -36,7 +40,12 @@ define([
 		updatePage: function(e) {
 			e.preventDefault();
 			this.pubSub.trigger('finishClicked', this.model.toJSON());
+		},
+
+		render: function() {
+			this.$el.find('label').toggleClass('active', this.model.get('isSelected'))
 		}
+
 
 	});
 
