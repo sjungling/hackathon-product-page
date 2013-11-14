@@ -18,7 +18,20 @@ require([
   'views/savings',
   'views/finishes',
   'views/option_groups'
-  ], function (Marionette, require, util, ProductModel, FinishNameView, HeadingView, ImageView, InventoryView, PriceView, LeadTimeView, SavingsView, FinishesView, OptionGroupsView) {
+  ], function (
+    Marionette,
+    require,
+    util,
+    ProductModel,
+    FinishNameView,
+    HeadingView,
+    ImageView,
+    InventoryView,
+    PriceView,
+    LeadTimeView,
+    SavingsView,
+    FinishesView,
+    OptionGroupsView) {
 
     Backbone.Marionette.View.prototype.pubSub =
       Backbone.View.prototype.pubSub = _.extend({},Backbone.Events);
