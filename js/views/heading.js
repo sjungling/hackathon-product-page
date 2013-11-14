@@ -14,9 +14,8 @@ define([
 		el: '#titleName',
 
 		updateTitle: function(data) {
-			var data = data || {};
 			this.model.set({
-				title: data.title
+				title: data.title || '' // if it reaches the OR we are in trouble
 			});
 			this.render();
 		},

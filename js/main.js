@@ -10,8 +10,9 @@ require([
   'helpers/utils',
   'models/product',
   'views/heading',
+  'views/price',
   'views/finishes'
-  ], function (Marionette, require, util, ProductModel, HeadingView, FinishesView) {
+  ], function (Marionette, require, util, ProductModel, HeadingView, PriceView, FinishesView) {
 
     Backbone.Marionette.View.prototype.pubSub =
       Backbone.Model.prototype.pubSub = _.extend({},Backbone.Events);
@@ -44,6 +45,8 @@ require([
     layout.finishes.show(new FinishesView({
       collection: Product.finishes
     }));
+
+    layout.price.show(new PriceView());
 
     layout.heading.show(new HeadingView());
 });
