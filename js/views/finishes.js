@@ -1,26 +1,26 @@
 define([
 	'marionette',
-	'views/finish'
-], function(m, FinishItemView) {
+	'views/finish',
+	'collections/finishes'
+], function(m, FinishView, FinishesCollection) {
 
-	var FinishesCollectionView = Backbone.Marionette.CollectionView.extend({
+	var FinishesView = Backbone.Marionette.View.extend({
 
 		initialize: function() {
-			console.log('initializing finishes collection view');
+			this.finishViews = [];
+			this.collection.each(function(model) {
+				this.finishViews.push(new FinishView({
+					el: this.$('#finish' + model.get('uniqueId')).closest('li'),
+					model: model
+				}));
+			}.bind(this));
 		},
 
-		itemView: FinishItemView,
+		el: '.finishes.hnav',
 
-		events: {
-			'click': 'showFinish'
-		},
-
-		showFinish: function(e) {
-			console.log('hovered!');
-		}
-
+		collection: FinishesCollection
 
 	});
 
-	return FinishesCollectionView;
+	return FinishesView;
 });

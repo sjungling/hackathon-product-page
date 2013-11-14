@@ -34,9 +34,10 @@ require([
 
     var layout = new Layout();
 
-    layout.finishes.show(new FinishesView());
-
-
     var Product = new ProductModel(window.dataLayer.product);
     BUILD.Models['Product'] = Product;
+
+    layout.finishes.show(new FinishesView({
+      collection: Product.collection
+    }));
 });
