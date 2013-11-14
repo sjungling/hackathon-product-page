@@ -16,7 +16,7 @@ define([
 			}.bind(this));
 		},
 
-		el: '.finishes.hnav',
+		el: '.finishes',
 
 		collection: FinishesCollection
 
