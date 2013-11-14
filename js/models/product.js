@@ -25,7 +25,7 @@ define([
 
     // Product Type Info
     hasSquareFootage: function() {
-      return this.get('hasSquareFootage');
+      return this.get('hasSquareFootage') || false;
     },
 
     isSingleFinish: function() {
@@ -40,22 +40,22 @@ define([
      * TODO: Deprecate?
      */
     hasPricedOptions: function() {
-      return this.get('hasPricedOptions');
+      return this.get('hasPricedOptions') || false;
     },
 
     /**
      * TODO: Deprecate?
      */
     hasAvailabilityByLocation: function() {
-      return this.get('isAvailableByLocation');
+      return this.get('isAvailableByLocation') || false;
     },
 
     isOnSale: function() {
-      return this.get('onSale');
+      return this.get('onSale') || false;
     },
 
     isLowLead: function() {
-      return this.get('AB1953');
+      return this.get('AB1953') || false;
     },
 
     isConfigured: function() {
