@@ -12,11 +12,11 @@ require([
   'views/heading',
   'views/price',
   'views/savings',
-  'views/finishes'
-  ], function (Marionette, require, util, ProductModel, HeadingView, PriceView, SavingsView, FinishesView) {
+  'views/finishes',
+  'views/option_groups'
+  ], function (Marionette, require, util, ProductModel, HeadingView, PriceView, SavingsView, FinishesView, OptionGroupsView) {
 
-    Backbone.Marionette.View.prototype.pubSub =
-      Backbone.Model.prototype.pubSub = _.extend({},Backbone.Events);
+    Backbone.Marionette.View.prototype.pubSub = _.extend({},Backbone.Events);
 
     var Layout = Backbone.Marionette.Layout.extend({
 
@@ -33,7 +33,8 @@ require([
         ratingsReviews: '#avgRatingAndReviewsDiv',
         quantity: '#qtyselected',
         price: '#productPrice',
-        savings: '#productSavings'
+        savings: '#productSavings',
+        optionGroups: '.poGroup'
       }
 
     });
@@ -41,14 +42,32 @@ require([
     var layout = new Layout();
 
     var Product = new ProductModel(window.dataLayer.product);
-    BUILD.Models['Product'] = Product;
 
     layout.finishes.show(new FinishesView({
       collection: Product.finishes
     }));
 
+    if (Product.hasPricedOptions()) {
+      for (var i = Product.optionGroups.models.length - 1; i >= 0; i--) {
+        layout.optionGroups.show(new OptionGroupsView({
+          model: Product.optionGroups.models[i]
+        }));
+      };
+    }
+
     layout.price.show(new PriceView());
     layout.savings.show(new SavingsView());
-
     layout.heading.show(new HeadingView());
+
+
+    // Keep at EOF
+    //
+    // Export objects to global object
+    BUILD.Models['Product'] = Product;
+    BUILD.Utilities = util;
+    BUILD.Collections['Finishes'] = Product.finishes;
+    if (Product.hasPricedOptions()) {
+      BUILD.Collections['PricedOptionGroups'] = Product.optionGroups;
+    }
+
 });
