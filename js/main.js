@@ -11,8 +11,9 @@ require([
   'models/product',
   'views/heading',
   'views/price',
+  'views/savings',
   'views/finishes'
-  ], function (Marionette, require, util, ProductModel, HeadingView, PriceView, FinishesView) {
+  ], function (Marionette, require, util, ProductModel, HeadingView, PriceView, SavingsView, FinishesView) {
 
     Backbone.Marionette.View.prototype.pubSub =
       Backbone.Model.prototype.pubSub = _.extend({},Backbone.Events);
@@ -47,6 +48,7 @@ require([
     }));
 
     layout.price.show(new PriceView());
+    layout.savings.show(new SavingsView());
 
     layout.heading.show(new HeadingView());
 });
